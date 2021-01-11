@@ -13,15 +13,21 @@
             <div class="col-md-4"><a (click) = "goToResume()">Flip to Resume</a></div>
         </div>
         <ul class="list-inline list-unstyle">
-            <li class="empDetails" *ngFor="let employee of employeeData?.employeesDetails">
-                <p><label>First Name</label>:&nbsp;&nbsp;{{employee.firstName}}</p>
-                <p><label>Last Name</label>:&nbsp;&nbsp; {{employee.lastName}}</p>
-                <p><label>Address</label>:&nbsp;&nbsp; {{employee.address}}</p>
-                <p><label>City</label>:&nbsp;&nbsp; {{employee.city}}</p>
-                <p><label>Postal Code</label>:&nbsp;&nbsp; {{employee.postalCode}}</p>
-                <p><label>Phone(Home)</label>:&nbsp;&nbsp; {{employee.phone}}</p>
-                <p><label>Country</label>:&nbsp;&nbsp; {{employee.country}}</p>
+            <li class="empDetails row" *ngFor="let employee of employeeData?.employeesDetails">
+                <div class="emp-info col-md-8">
+                    <p><label>First Name</label>:&nbsp;&nbsp;{{employee.firstName}}</p>
+                    <p><label>Last Name</label>:&nbsp;&nbsp; {{employee.lastName}}</p>
+                    <p><label>Address</label>:&nbsp;&nbsp; {{employee.address}}</p>
+                    <p><label>City</label>:&nbsp;&nbsp; {{employee.city}}</p>
+                    <p><label>Postal Code</label>:&nbsp;&nbsp; {{employee.postalCode}}</p>
+                    <p><label>Phone(Home)</label>:&nbsp;&nbsp; {{employee.phone}}</p>
+                    <p><label>Country</label>:&nbsp;&nbsp; {{employee.country}}</p>
+                </div>
+                <div class="emp-imge col-md-4">
+                    <img [src]="employee.imgurl" width="150px" height="150px">
+                </div>
             </li>
+           
             <li *ngIf="!employeeData"><h2>No Search Found</h2></li>
         </ul>
         

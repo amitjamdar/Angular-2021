@@ -16,7 +16,9 @@
             "rating":4,
             "postalCode" : 98122,
             "phone": 290928022,
-            "country":"USA"
+            "country":"USA",
+            "imgurl":"https://picsum.photos/200/300?random=2"
+
         }
     ]
 }

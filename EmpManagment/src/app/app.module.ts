@@ -9,7 +9,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
 import {ListOfEmpService } from './list-of-emp.service';
-import { ResumeComponent } from './resume/resume.component'
+import { ResumeComponent } from './resume/resume.component';
+import { TabComponent } from './tab.component';
+import { TabsComponent } from './tabs.component';
 const routes:Routes = [
   {
     path: '',   
@@ -39,7 +41,9 @@ const routes:Routes = [
     EmpDetailComponent,
     PageNotFoundComponent,
     SearchPipe,
-    ResumeComponent
+    ResumeComponent,
+    TabComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
