@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #57B2DC;
+}
+.container{
+    background-color: #ffffff;
+    height: 500px;
+    color: #000;
+}
+.page-header{
+    background-color: #B8E1FB;
+    text-align: center;
+    padding: 10px;
+}
+.list-item{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: aliceblue;
+    a{
+        color: #227BB1;
+        cursor: pointer;
+        font-size: 10px;
+
+    }
+}
+.backToHome{
+    float: left;
+    border: 1px dotted;
+    padding: 8PX;
+    position: relative;
+    top: -10px
+}

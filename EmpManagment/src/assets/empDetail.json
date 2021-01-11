@@ -1,0 +1,22 @@
+{
+    "employeesDetails":  [
+        {
+            "id": 1,
+            "firstName": "Nancy",
+            "lastName": "Davolio",
+            "gender": "male",
+            "address": "1234 Anywhere St.",
+            "city": " Phoenix ",
+            "state": {
+                "abbreviation": "AZ",
+                "name": "Arizona"
+            },
+            "salary": 4.500,
+            "joinDate": "July 2, 2015",
+            "rating":4,
+            "postalCode" : 98122,
+            "phone": 290928022,
+            "country":"USA"
+        }
+    ]
+}

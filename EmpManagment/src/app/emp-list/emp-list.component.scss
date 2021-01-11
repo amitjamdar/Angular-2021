@@ -1,0 +1,18 @@
+.employees{
+background:silver;
+    li{
+        background: #fff;
+        font-size: small;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        :first-child{
+            background: none;
+        }
+    }
+    :hover{
+        background-color: silver;
+        cursor: pointer;
+    }
+    
+}
+
