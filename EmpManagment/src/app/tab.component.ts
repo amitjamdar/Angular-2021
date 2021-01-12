@@ -8,7 +8,7 @@ import {TabsComponent} from './tabs.component';
   styles: [`h1 { font-family: Lato; }`]
 })
 export class TabComponent  {
-   @Input() tabTitle;
+   @Input() tabTitle:any;
    active = false;
   constructor(tabs: TabsComponent) {
     tabs.addTab(this)

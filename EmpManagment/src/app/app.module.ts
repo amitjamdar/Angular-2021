@@ -15,8 +15,10 @@ import { TabsComponent } from './tabs.component';
 const routes:Routes = [
   {
     path: '',   
-    component:AppComponent
+    component:AppComponent,
+    pathMatch: 'full',
   },
+  
   { 
     path:'app-page-not-found', 
     component:PageNotFoundComponent

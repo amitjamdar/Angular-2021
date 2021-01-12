@@ -8,14 +8,13 @@
         <span>Employee List</span>
     </div>
     
-    <div class="employees">
+    <div *ngIf="Employee.length !== 0" class="employees">
         <ul class="list-inline list-unstyle">
             <li style="background-color: none;">
                 <input type="search"  style="width: 50%;" placeholder="search" [(ngModel)]="filterSearchValue">
             </li>
-            
             <li>List of Employees</li>
-            <li *ngFor="let employee of employeeData?.employees | search:filterSearchValue">
+            <li *ngFor="let employee of Employee | search:filterSearchValue">
                 <a (click) = "empDetails(employee.id)">{{employee.firstName}} {{employee.lastName}}</a>
                 <i  class="glyphicon glyphicon-chevron-right" style="float: right;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
@@ -23,8 +22,9 @@
                     </svg>
                 </i>
             </li>
-            <li *ngIf="!employeeData"><h2>No Search Found</h2></li>
         </ul>
-        
+    </div>
+    <div *ngIf="Employee.length == 0" class="employees">
+
     </div>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { Router } from '@angular/router';
+import { RestApiService } from "../shared/rest-api.service";
+
 @Component({
   selector: 'app-emp-list',
   templateUrl: './emp-list.component.html',
@@ -10,14 +12,29 @@ export class EmpListComponent implements OnInit {
   employeeData:any;
   filterSearchValue:any= '';
   searchText:any;
+  Employee: any = [];
+  constructor(private httpClient: HttpClient, private router:Router,  public restApi: RestApiService) { }
 
-  constructor(private httpClient: HttpClient, private router:Router) { }
+  // ngOnInit(): void {
+  //   // this.httpClient.get<any>("assets/employees.json").subscribe((data)=>
+  //   //   this.employeeData = data
+  //   // )
+  //   // this.loadEmployees();
+  // }
 
-  ngOnInit(): void {
-    this.httpClient.get<any>("assets/employees.json").subscribe((data)=>
-      this.employeeData = data
-    )
+  ngOnInit() {
+    this.loadEmployees()
   }
+
+  // Get employees list
+  loadEmployees() {
+    
+    return this.restApi.getEmployees().subscribe((data: {}) => {
+      this.Employee = data;
+      console.log("In load Emp", this.Employee);
+    })
+  }
+
   backToHome(){
     this.router.navigate(['/']);
   }
