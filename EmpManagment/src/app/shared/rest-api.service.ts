@@ -36,7 +36,7 @@ export class RestApiService {
   }
 
   // HttpClient API get() method => Fetch employee
-  getEmployee(id): Observable<Employee> {
+  getEmployee(id:any): Observable<Employee> {
     return this.http.get<Employee>(this.apiURL + '/employees/' + id)
     .pipe(
       retry(1),
@@ -72,6 +72,7 @@ export class RestApiService {
   // // }
 
   // // // Error handling 
+  
   handleError(error:any) {
      let errorMessage = '';
      if(error.error instanceof ErrorEvent) {

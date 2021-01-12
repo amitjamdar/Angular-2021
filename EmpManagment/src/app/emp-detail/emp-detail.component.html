@@ -5,12 +5,12 @@
                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
               </svg>
             </span>
-        <span>Employee Details {{employeeData.firstName}}</span>
+        <span>Employee Details {{employeeData.firstName}} {{employeeData.lastName}}</span>
     </div>
     <div class="employees">
         <div class="row emp-id-details">
             <div class="col-md-8">EmployeeID: {{id}}</div>
-            <div class="col-md-4"><a (click) = "goToResume()">Flip to Resume</a></div>
+            <div class="col-md-4"><a (click) = "goToResume(employeeData.id)">Flip to Resume</a></div>
         </div>
         <ul class="list-inline list-unstyle">
             <li class="empDetails row">
@@ -20,11 +20,11 @@
                     <p><label>Address</label>:&nbsp;&nbsp; {{employeeData.address}}</p>
                     <p><label>City</label>:&nbsp;&nbsp; {{employeeData.city}}</p>
                     <p><label>Postal Code</label>:&nbsp;&nbsp; {{employeeData.postalCode}}</p>
-                    <p><label>Phone(Home)</label>:&nbsp;&nbsp; {{employeeData.phone}}</p>
+                    <p><label>Phone(Home)</label>:&nbsp;&nbsp; <a href="/">{{employeeData.phone}}</a></p>
                     <p><label>Country</label>:&nbsp;&nbsp; {{employeeData.country}}</p>
                 </div>
                 <div class="emp-imge col-md-4">
-                    <img [src]="employeeData.imgurl" width="150px" height="150px">
+                    <img [src]="employeeData.imgurl" width="300px" height="200px">
                 </div>
             </li>
            

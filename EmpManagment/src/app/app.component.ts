@@ -12,10 +12,10 @@ export class AppComponent {
 
   notFound(){
     this.hideList = false;
-    this.router.navigate(['app-page-not-found']);
+    this.router.navigate(['page-not-found']);
   }
   showEmpList(){
     this.hideList = false;
-    this.router.navigate(['app-emp-list']);
+    this.router.navigate(['emp-list']);
   }
 }

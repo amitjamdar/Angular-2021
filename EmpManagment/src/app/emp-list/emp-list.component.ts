@@ -28,7 +28,6 @@ export class EmpListComponent implements OnInit {
 
   // Get employees list
   loadEmployees() {
-    
     return this.restApi.getEmployees().subscribe((data: {}) => {
       this.Employee = data;
       console.log("In load Emp", this.Employee);
@@ -40,6 +39,6 @@ export class EmpListComponent implements OnInit {
   }
   empDetails(id:any){
     console.log(id);
-    this.router.navigate(['/app-emp-detail', id]);
+    this.router.navigate(['/emp-detail', id]);
   }
 }

@@ -32,17 +32,16 @@ export class EmpDetailComponent implements OnInit {
   loadEmployeesWithID() {
     return  this.restApi.getEmployee(this.id).subscribe((data: {}) => {
       this.employeeData = data;
-      
       console.log("EmpData",  this.employeeData);
     });
   }
 
   backToHome(){
-    this.router.navigate(['app-emp-list']);
+    this.router.navigate(['emp-list']);
   }
-  goToResume(){
+  goToResume(empId:any){
     console.log("go to resume component");
-    this.router.navigate(['app-resume']);
+    this.router.navigate(['/resume', empId]);
   }
 
 }

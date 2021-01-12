@@ -3,14 +3,15 @@ body{
     background-color: #57B2DC;
 }
 .container{
-    background-color: #e0e0e0;
+    background-color: #e6e6e6;
     height: 500px;
     color: #000;
 }
 .page-header{
-    background-color: #B8E1FB;
+    background-color: aliceblue;
     text-align: center;
     padding: 10px;
+    border-bottom: 1px solid #c1c1c1;
 }
 .list-item{
     border: 1px solid #ccc;
@@ -36,7 +37,7 @@ body{
     font-size: 13px;
     .tab-list{
         border: none;
-        background: #e1e1e1;
+        background: #e6e6e6;
         margin-right: 15px;
         cursor: pointer;
         padding: 12px 5px;

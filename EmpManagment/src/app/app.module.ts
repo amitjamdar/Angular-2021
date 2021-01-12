@@ -12,6 +12,7 @@ import {ListOfEmpService } from './list-of-emp.service';
 import { ResumeComponent } from './resume/resume.component';
 import { TabComponent } from './tab.component';
 import { TabsComponent } from './tabs.component';
+import { EmployeecreateComponent } from './employeecreate/employeecreate.component';
 const routes:Routes = [
   {
     path: '',   
@@ -20,19 +21,19 @@ const routes:Routes = [
   },
   
   { 
-    path:'app-page-not-found', 
+    path:'page-not-found', 
     component:PageNotFoundComponent
   },
   {
-    path:'app-emp-list',
+    path:'emp-list',
     component:EmpListComponent
   },
   {
-    path:'app-emp-detail/:id',
+    path:'emp-detail/:id',
     component:EmpDetailComponent
   },
   {
-    path:'app-resume',
+    path:'resume/:id',
     component:ResumeComponent
   }
 ]
@@ -45,7 +46,8 @@ const routes:Routes = [
     SearchPipe,
     ResumeComponent,
     TabComponent,
-    TabsComponent
+    TabsComponent,
+    EmployeecreateComponent
   ],
   imports: [
     BrowserModule,
