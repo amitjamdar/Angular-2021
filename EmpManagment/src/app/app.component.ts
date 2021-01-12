@@ -18,4 +18,8 @@ export class AppComponent {
     this.hideList = false;
     this.router.navigate(['emp-list']);
   }
+  addEmp(){
+    this.hideList = false;
+    this.router.navigate(['add-employee']);
+  }
 }

@@ -1,53 +1,59 @@
 {
-    "employees": [{
+  "employees": [
+    {
       "id": 1,
       "firstName": "Nancy",
       "lastName": "Davolio",
-      "address":"1234 Anywhere St.",
+      "address": "1234 Anywhere St.",
       "city": "London",
-      "country":"UK",
-      "postalCode" : 98122,
+      "country": "UK",
+      "postalCode": 98122,
       "phone": 290928022,
-      "imgurl":"https://picsum.photos/300/300?random=2"
-    }, {
-        "id": 2,
-        "firstName": "Andrew",
-        "lastName": "Fuller",
-        "address":"1234 Anywhere St.",
-        "city": "California",
-        "country":"USA",
-        "postalCode" : 98122,
-        "phone": 290928022,
-        "imgurl":"https://picsum.photos/300/300?random=2"
-    }, {
-        "id": 3,
-        "firstName": "Janet",
-        "lastName": "laverling",
-        "address":"1234 Anywhere St.",
-        "city": "Bejhing",
-        "country":"China",
-        "postalCode" : 98122,
-        "phone": 290928022,
-        "imgurl":"https://picsum.photos/200/300?random=2"
-    },{
-        "id": 4,
-        "firstName": "Margaret",
-        "lastName": "Peacock",
-        "address":"1234 Anywhere St.",
-        "city": "Phoenix",
-        "country":"USA",
-        "postalCode" : 98122,
-        "phone": 290928022,
-        "imgurl":"https://picsum.photos/200/300?random=2"
-    },{
-        "id": 5,
-        "firstName": "Steven",
-        "lastName": "Buchan",
-        "address":"1234 Anywhere St.",
-        "city": "Phoenix",
-        "country":"USA",
-        "postalCode" : 98122,
-        "phone": 290928022,
-        "imgurl":"https://picsum.photos/200/300?random=2"
-    }]
-  }
+      "imgurl": "https://picsum.photos/300/300?random=2"
+    },
+    {
+      "id": 2,
+      "firstName": "Andrew",
+      "lastName": "Fuller",
+      "address": "1234 Anywhere St.",
+      "city": "California",
+      "country": "USA",
+      "postalCode": 98122,
+      "phone": 290928022,
+      "imgurl": "https://picsum.photos/300/300?random=2"
+    },
+    {
+      "id": 3,
+      "firstName": "Janet",
+      "lastName": "laverling",
+      "address": "1234 Anywhere St.",
+      "city": "Bejhing",
+      "country": "China",
+      "postalCode": 98122,
+      "phone": 290928022,
+      "imgurl": "https://picsum.photos/200/300?random=2"
+    },
+    {
+      "id": 4,
+      "firstName": "Margaret",
+      "lastName": "Peacock",
+      "address": "1234 Anywhere St.",
+      "city": "Phoenix",
+      "country": "USA",
+      "postalCode": 98122,
+      "phone": 290928022,
+      "imgurl": "https://picsum.photos/200/300?random=2"
+    },
+    {
+      "id": 5,
+      "firstName": "Steven",
+      "lastName": "Buchan",
+      "address": "1234 Anywhere St.",
+      "city": "Phoenix",
+      "country": "USA",
+      "postalCode": 98122,
+      "phone": 290928022,
+      "imgurl": "https://picsum.photos/200/300?random=2"
+    }
+  ]
+}

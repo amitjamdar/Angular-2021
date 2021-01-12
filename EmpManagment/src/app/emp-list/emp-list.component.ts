@@ -34,11 +34,24 @@ export class EmpListComponent implements OnInit {
     })
   }
 
+  // Delete employee
+  deleteEmployee(id: string) {
+    if (window.confirm('Are you sure, you want to delete?')){
+      this.restApi.deleteEmployee(id).subscribe(data => {
+        this.loadEmployees()
+      })
+    }
+  }  
+  editEmployee(id:any){
+    this.router.navigate(['/emp-edit', id]);
+  }
+
+  empDetails(id:any){
+    this.router.navigate(['/emp-detail', id]);
+  }
+
   backToHome(){
     this.router.navigate(['/']);
   }
-  empDetails(id:any){
-    console.log(id);
-    this.router.navigate(['/emp-detail', id]);
-  }
+
 }

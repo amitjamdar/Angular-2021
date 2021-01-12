@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="page-header">
+        <span class="backToHome" (click)="backToHome()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            </span>
+        <span>Add New Employee</span>
+    </div>
+    <div class="custom-container">
+        <div class="col-md-12">
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.firstName" class="form-control" placeholder="Name">
+          </div>
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.lastName" class="form-control" placeholder="LastName">
+          </div>
+      
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.address" class="form-control" placeholder="Address">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.city" class="form-control" placeholder="City">
+          </div>
+
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.country" class="form-control" placeholder="Country">
+          </div>
+          
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.postalCode" class="form-control" placeholder="PostalCode">
+          </div>
+          
+          <div class="form-group">
+            <input type="text" [(ngModel)]="employeeDetails.phone" class="form-control" placeholder="Phone">
+          </div>
+      
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="addEmployee(employeeDetails)">Add Employee</button>
+          </div>
+      
+        </div>
+      </div>
+    
+</div>

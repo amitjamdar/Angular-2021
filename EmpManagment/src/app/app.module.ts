@@ -12,7 +12,9 @@ import {ListOfEmpService } from './list-of-emp.service';
 import { ResumeComponent } from './resume/resume.component';
 import { TabComponent } from './tab.component';
 import { TabsComponent } from './tabs.component';
-import { EmployeecreateComponent } from './employeecreate/employeecreate.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { EmpEditComponent } from './emp-edit/emp-edit.component';
+
 const routes:Routes = [
   {
     path: '',   
@@ -35,6 +37,14 @@ const routes:Routes = [
   {
     path:'resume/:id',
     component:ResumeComponent
+  },
+  {
+    path:'add-employee',
+    component:AddEmployeeComponent
+  },
+  {
+    path:'emp-edit/:id',
+    component:EmpEditComponent
   }
 ]
 @NgModule({
@@ -47,7 +57,8 @@ const routes:Routes = [
     ResumeComponent,
     TabComponent,
     TabsComponent,
-    EmployeecreateComponent
+    AddEmployeeComponent,
+    EmpEditComponent
   ],
   imports: [
     BrowserModule,
