@@ -37,7 +37,7 @@ export class EmpEditComponent implements OnInit {
   }
   
   backToHome(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/emp-list']);
   }
 
 }

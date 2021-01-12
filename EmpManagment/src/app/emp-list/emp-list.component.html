@@ -14,6 +14,7 @@
         <ul class="list-inline list-unstyle">
             <li style="background-color: none;">
                 <input type="search" style="width: 50%;" placeholder="search" [(ngModel)]="filterSearchValue">
+                <span style="float: right;" class="editdelet pull-right" (click) = 'addEmp()'>Add</span>
             </li>
             <li style="font-size: 16px;">List of Employees</li>
             <li style = "margin: 0px;" class="row" *ngFor="let employee of Employee | search:filterSearchValue">

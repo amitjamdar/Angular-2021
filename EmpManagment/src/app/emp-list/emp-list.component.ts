@@ -53,5 +53,7 @@ export class EmpListComponent implements OnInit {
   backToHome(){
     this.router.navigate(['/']);
   }
-
+  addEmp(){
+    this.router.navigate(['add-employee']);
+  }
 }

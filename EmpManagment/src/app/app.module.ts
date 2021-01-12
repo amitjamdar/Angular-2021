@@ -8,7 +8,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from "@angular/common/http";
 import { SearchPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
-import {ListOfEmpService } from './list-of-emp.service';
 import { ResumeComponent } from './resume/resume.component';
 import { TabComponent } from './tab.component';
 import { TabsComponent } from './tabs.component';
@@ -66,7 +65,7 @@ const routes:Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [ListOfEmpService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

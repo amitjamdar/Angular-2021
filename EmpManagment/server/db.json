@@ -54,6 +54,17 @@
       "postalCode": 98122,
       "phone": 290928022,
       "imgurl": "https://picsum.photos/200/300?random=2"
+    },
+    {
+      "firstName": "Jack",
+      "lastName": "Mask",
+      "address": "South",
+      "city": "Telsa",
+      "country": "UK",
+      "postalCode": "9039",
+      "phone": "098732827387",
+      "imgurl": "https://picsum.photos/300/300?random=1",
+      "id": 6
     }
   ]
 }
