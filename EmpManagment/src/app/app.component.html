@@ -1,13 +1,13 @@
 <div class="container">
-    <div *ngIf="hideList">
+    <div *ngIf="hideHeader">
         <p class="page-header">Home</p>
-        <ul class="list-unstyle list-inline" >
-            <li class="list-inline-item list-item" ><a class="btn" (click) = 'notFound()'>Display Not Found</a></li>
+        <ul class="list-unstyle list-inline" style="padding: 20px 20px;" >
+            <li class="list-inline-item list-item"><a class="btn" (click) = 'notFound()'>Display Not Found</a></li>
             <li class="list-inline-item list-item"><a class="btn" (click) = 'showEmpList()'>Show Employee List</a></li>
-            <li class="list-inline-item list-item"><a class="btn" (click) = 'addEmp()'>Add Employee</a></li>
+            <!-- <li class="list-inline-item list-item"><a class="btn" (click) = 'addEmp()'>Add Employee</a></li> -->
         </ul>
     </div>
-    <div *ngIf="!hideList">
+    <div *ngIf="!hideHeader">
         <router-outlet></router-outlet>
     </div>
     

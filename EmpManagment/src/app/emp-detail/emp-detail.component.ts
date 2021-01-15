@@ -11,12 +11,14 @@ import { RestApiService } from "../shared/rest-api.service";
 })
 export class EmpDetailComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router:Router,public restApi: RestApiService) {}
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router:Router,
+    public restApi: RestApiService) {}
   employeeData: any = [];
   filterSearchValue:any= '';
   searchText:any;
   private sub: any;
   id:any;
+  myParam:any;
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
@@ -32,7 +34,6 @@ export class EmpDetailComponent implements OnInit {
   loadEmployeesWithID() {
     return  this.restApi.getEmployee(this.id).subscribe((data: {}) => {
       this.employeeData = data;
-      console.log("EmpData",  this.employeeData);
     });
   }
 

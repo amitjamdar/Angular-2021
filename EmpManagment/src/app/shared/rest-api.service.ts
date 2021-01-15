@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from '../shared/employee';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Subject, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ import { retry, catchError } from 'rxjs/operators';
 
 export class RestApiService {
   
+  
+  hideHeader = new BehaviorSubject(true);
+
   // Define API
   apiURL = 'http://localhost:3000';
 
@@ -83,8 +87,6 @@ export class RestApiService {
        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
      }
      window.alert(errorMessage);
-     console.log("IN Service Error Message");
      return throwError(errorMessage);
   }
-
 }

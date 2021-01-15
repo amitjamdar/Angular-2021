@@ -7,12 +7,13 @@ import { EmpDetailComponent } from './emp-detail/emp-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from "@angular/common/http";
 import { SearchPipe } from './search.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ResumeComponent } from './resume/resume.component';
 import { TabComponent } from './tab.component';
 import { TabsComponent } from './tabs.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmpEditComponent } from './emp-edit/emp-edit.component';
+
 
 const routes:Routes = [
   {
@@ -44,7 +45,8 @@ const routes:Routes = [
   {
     path:'emp-edit/:id',
     component:EmpEditComponent
-  }
+  },
+  { path: '**', redirectTo: '' }
 ]
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ const routes:Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

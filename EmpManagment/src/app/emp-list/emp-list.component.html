@@ -1,34 +1,34 @@
 <div class="container">
     <div class="page-header">
         <span class="backToHome" (click)="backToHome()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-            </svg>
+            <i class="glyphicon glyphicon-chevron-left">
+            </i>
         </span>
         <span>Employee List</span>
     </div>
 
     <div *ngIf="Employee.length !== 0" class="employees">
-        <ul class="list-inline list-unstyle">
+        <ul style="padding: 0; list-style: none;" class="list-unstyle">
             <li style="background-color: none;">
-                <input type="search" style="width: 50%;" placeholder="search" [(ngModel)]="filterSearchValue">
-                <span style="float: right;" class="editdelet pull-right" (click) = 'addEmp()'>Add</span>
+                <input type="search" class="search" placeholder="search" [(ngModel)]="filterSearchValue">
+                <div style="float: right;" class="search-icons">
+                    <span (click)="onClick($event)"><i class="glyphicon glyphicon-sort"></i></span>
+                    <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                </div>
+
+                <!-- <span style="float: right;" class="editdelet pull-right" (click)='addEmp()'>Add</span> -->
             </li>
             <li style="font-size: 16px;">List of Employees</li>
-            <li style = "margin: 0px;" class="row" *ngFor="let employee of Employee | search:filterSearchValue">
+            <li style="padding-left: 0px;margin: 0px;" class="row"
+                *ngFor="let employee of Employee | search:filterSearchValue">
                 <div class="col-md-11" (click)="empDetails(employee.id)">
                     <a>{{employee.firstName}} {{employee.lastName}}</a>
-                    <i class="glyphicon glyphicon-chevron-right" style="float: right;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-                        </svg>
-                    </i>
+                    <span style="float: right;">
+                        <i class="glyphicon glyphicon-chevron-right">
+                        </i>
+                    </span>
                 </div>
-                <div style = "padding: 0px;" class="col-md-1">
+                <div style="padding: 0px;" class="col-md-1">
                     <span class="edit editdelet" (click)="editEmployee(employee.id)">Edit</span>
                     <span class="delete editdelet" (click)="deleteEmployee(employee.id)">Delete</span>
                 </div>
@@ -36,6 +36,43 @@
         </ul>
     </div>
     <div *ngIf="Employee.length == 0" class="employees">
-        <h4>No Search Found</h4>
+        No Search Found
+    </div>
+    <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 style="width: 100%;" class="modal-title page-header">view</h4>
+                    <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="sort-filter col-md-12">
+                    <h4>Sort By</h4>
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
+                        <div class="custom-control custom-radio">
+                            <input id="male" type="radio" class="custom-control-input" value="asc" name="sortby"
+                                formControlName="sortby">
+                            <label class="custom-control-label" for="male">Ascending</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input id="female" type="radio" class="custom-control-input" value="desc" name="sortby"
+                                formControlName="sortby">
+                            <label class="custom-control-label" for="female">Descending</label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Ok</button>
+                            <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!-- Modal footer -->
+        </div>
     </div>
 </div>

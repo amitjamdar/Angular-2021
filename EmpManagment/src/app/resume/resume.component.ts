@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { RestApiService } from "../shared/rest-api.service";
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-resume',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResumeComponent implements OnInit {
 
-  constructor(private router:Router, private route: ActivatedRoute, public restApi: RestApiService) {}
+  constructor(private router:Router, private route: ActivatedRoute, public restApi: RestApiService, private location: Location) {}
   employeeData: any = [];
   private sub: any;
   id:any;
@@ -33,7 +34,7 @@ export class ResumeComponent implements OnInit {
     });
   }
   backToHome(){
-    this.router.navigate(['/']);
+    this.location.back();
   }
 
 }

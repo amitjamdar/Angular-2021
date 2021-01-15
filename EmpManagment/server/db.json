@@ -8,7 +8,7 @@
       "city": "London",
       "country": "UK",
       "postalCode": 98122,
-      "phone": 290928022,
+      "phone": "(0923)290928022",
       "imgurl": "https://picsum.photos/300/300?random=2"
     },
     {
@@ -65,6 +65,28 @@
       "phone": "098732827387",
       "imgurl": "https://picsum.photos/300/300?random=1",
       "id": 6
+    },
+    {
+      "firstName": "John",
+      "lastName": "Cena",
+      "address": "IY",
+      "city": "Hong",
+      "country": "Italy ",
+      "postalCode": "090929",
+      "phone": "(122)232323",
+      "imgurl": "https://picsum.photos/300/300?random=1",
+      "id": 7
+    },
+    {
+      "firstName": "Matten",
+      "lastName": "Hanger",
+      "address": "NO",
+      "city": "Nowat",
+      "country": "Itlay",
+      "postalCode": "0882",
+      "phone": "088283y12",
+      "imgurl": "https://picsum.photos/300/300?random=1",
+      "id": 8
     }
   ]
 }

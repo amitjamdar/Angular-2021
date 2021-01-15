@@ -1,18 +1,17 @@
 <div class="container">
     <div class="page-header">
         <span class="backToHome" (click)="backToHome()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-              </svg>
-            </span>
+            <i class="glyphicon glyphicon-chevron-left">
+            </i>
+        </span>
         <span>Employee Details {{employeeData.firstName}} {{employeeData.lastName}}</span>
     </div>
     <div class="employees">
         <div class="row emp-id-details">
-            <div class="col-md-8">EmployeeID: {{id}}</div>
+            <div class="col-md-8"><h3>EmployeeID: {{id}}</h3></div>
             <div class="col-md-4"><a (click) = "goToResume(employeeData.id)">Flip to Resume</a></div>
         </div>
-        <ul class="list-inline list-unstyle">
+        <ul class="list-unstyle">
             <li class="empDetails row">
                 <div class="emp-info col-md-8">
                     <p><label>First Name</label>:&nbsp;&nbsp;{{employeeData.firstName}}</p>
