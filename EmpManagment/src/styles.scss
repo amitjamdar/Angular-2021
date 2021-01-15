@@ -77,23 +77,31 @@ body{
     padding: 10px;
 }
 .sort-filter{
+    padding:0px;
     h4{
-        padding: 9px;
+        padding: 5px 15px;
         margin: 0px;
         border-bottom: 1px solid #c1c1c1;
         color: blue;
     }
     .inner{
-        padding: 4px 0px;
         .custom-radio{
             vertical-align: unset;
-            padding: 5px 1.5rem;
+            padding: 5px 3.5rem;
             font-size: 12px;
             border-bottom: 1px solid #c1c1c1;
-        &:hover{
-            background-color: aliceblue;
+            &:hover{
+                background-color: aliceblue;
+            }
         }
-        }
+    }
+}
+.modal-header{
+    background: aliceblue;
+    border-bottom: 1px solid #c1c1c1;
+    padding:0px;
+    .page-header{
+        border: none;
     }
 }
 .modal-footer{

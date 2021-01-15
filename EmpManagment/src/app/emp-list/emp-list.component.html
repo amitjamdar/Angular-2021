@@ -21,17 +21,19 @@
             <li style="font-size: 16px;">List of Employees</li>
             <li style="padding-left: 0px;margin: 0px;" class="row"
                 *ngFor="let employee of Employee | search:filterSearchValue">
-                <div class="col-md-11" (click)="empDetails(employee.id)">
+                <div class="col-md-12" (click)="empDetails(employee.id)">
                     <a>{{employee.firstName}} {{employee.lastName}}</a>
+                    
                     <span style="float: right;">
-                        <i class="glyphicon glyphicon-chevron-right">
+                        <span style="padding-right: 20px; font-weight: 600;">{{employee.unitnumber}}.00 <br>UoM</span>
+                        <i style="vertical-align: super;" class="glyphicon glyphicon-chevron-right">
                         </i>
                     </span>
                 </div>
-                <div style="padding: 0px;" class="col-md-1">
+                <!-- <div style="padding: 0px;" class="col-md-1">
                     <span class="edit editdelet" (click)="editEmployee(employee.id)">Edit</span>
                     <span class="delete editdelet" (click)="deleteEmployee(employee.id)">Delete</span>
-                </div>
+                </div> -->
             </li>
         </ul>
     </div>
@@ -53,15 +55,28 @@
                     <h4>Sort By</h4>
                     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
                         <div class="custom-control custom-radio">
-                            <input id="male" type="radio" class="custom-control-input" value="asc" name="sortby"
+                            <input id="asc" type="radio" class="custom-control-input" value="asc" name="sortby"
                                 formControlName="sortby">
-                            <label class="custom-control-label" for="male">Ascending</label>
+                            <label class="custom-control-label" for="asc">Ascending</label>
                         </div>
 
                         <div class="custom-control custom-radio">
-                            <input id="female" type="radio" class="custom-control-input" value="desc" name="sortby"
+                            <input id="desc" type="radio" class="custom-control-input" value="desc" name="sortby"
                                 formControlName="sortby">
-                            <label class="custom-control-label" for="female">Descending</label>
+                            <label class="custom-control-label" for="desc">Descending</label>
+                        </div>
+
+                        <h4 style="padding-top:20px;">Sort Object</h4>
+                        <div class="custom-control custom-radio">
+                            <input id="son" type="radio" class="custom-control-input" value="name" name="sortbyobject"
+                                formControlName="sortbyobject">
+                            <label class="custom-control-label" for="son">Sort By <-Name-> </label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input id="sob" type="radio" class="custom-control-input" value="unitmember" name="sortbyobject"
+                                formControlName="sortbyobject">
+                            <label class="custom-control-label" for="sob">Sort By <-UnitNumber-></label>
                         </div>
 
                         <div class="modal-footer">

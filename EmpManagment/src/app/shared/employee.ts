@@ -8,5 +8,6 @@ export class Employee {
     country!: string;
     postalcode!:number;
     phone!:number;
-    imgurl!:string
+    imgurl!:string;
+    unitnumber!:number
 }

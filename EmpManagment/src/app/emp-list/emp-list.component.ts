@@ -74,14 +74,13 @@ export class EmpListComponent implements OnInit {
 
 
   registrationForm = this.fb.group({
-    sortby: ['asc', [Validators.required]]
+    sortby: ['asc', [Validators.required]],
+    sortbyobject:['name',[]]
   })
-  get myForm() {
-    return this.registrationForm.get('sortby');
-  }
     
   onSubmit() {
     this.sortOrder = this.registrationForm.value;
+    console.log(this.sortOrder);
     this.Employee.sort(this.compareValues('firstName', this.sortOrder));
     this.showModal = false;
   }  
