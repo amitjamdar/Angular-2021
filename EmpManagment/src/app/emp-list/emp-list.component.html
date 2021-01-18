@@ -23,7 +23,7 @@
                 *ngFor="let employee of Employee | search:filterSearchValue">
                 <div class="col-md-12" (click)="empDetails(employee.id)">
                     <a>{{employee.firstName}} {{employee.lastName}}</a>
-                    
+
                     <span style="float: right;">
                         <span style="padding-right: 20px; font-weight: 600;">{{employee.unitnumber}}.00 <br>UoM</span>
                         <i style="vertical-align: super;" class="glyphicon glyphicon-chevron-right">
@@ -36,6 +36,7 @@
                 </div> -->
             </li>
         </ul>
+       
     </div>
     <div *ngIf="Employee.length == 0" class="employees">
         No Search Found
@@ -52,38 +53,73 @@
 
                 <!-- Modal body -->
                 <div class="sort-filter col-md-12">
-                    <h4>Sort By</h4>
-                    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
-                        <div class="custom-control custom-radio">
-                            <input id="asc" type="radio" class="custom-control-input" value="asc" name="sortby"
-                                formControlName="sortby">
-                            <label class="custom-control-label" for="asc">Ascending</label>
+                    <div role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-sort"></i></a>
+    
+                            </li>
+                            <li role="presentation"><a href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab"><i class="fa fa-filter" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="uploadTab"><h4>Sort By</h4>
+                                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
+                                    <div class="custom-control custom-radio">
+                                        <input id="asc" type="radio" class="custom-control-input" value="asc" name="sortby"
+                                            formControlName="sortby">
+                                        <label class="custom-control-label" for="asc">Ascending</label>
+                                    </div>
+            
+                                    <div class="custom-control custom-radio">
+                                        <input id="desc" type="radio" class="custom-control-input" value="desc" name="sortby"
+                                            formControlName="sortby">
+                                        <label class="custom-control-label" for="desc">Descending</label>
+                                    </div>
+            
+                                    <h4 style="padding-top:20px;">Sort Object</h4>
+                                    <div class="custom-control custom-radio">
+                                        <input id="son" type="radio" class="custom-control-input" value="name" name="sortbyobject"
+                                            formControlName="sortbyobject">
+                                        <label class="custom-control-label" for="son">Sort By < Name > </label>
+                                    </div>
+            
+                                    <div class="custom-control custom-radio">
+                                        <input id="sob" type="radio" class="custom-control-input" value="unitmember"
+                                            name="sortbyobject" formControlName="sortbyobject">
+                                        <label class="custom-control-label" for="sob">Sort By < UnitNumber ></label>
+                                    </div>
+            
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Ok</button>
+                                        <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
+                                    </div>
+                                </form></div>
+                            <div role="tabpanel" class="tab-pane" id="browseTab">
+                                <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
+                                    <div class="custom-control custom-radio">
+                                        <input id="below" type="radio" class="custom-control-input" value="below" name="filter"
+                                            formControlName="filter">
+                                        <label class="custom-control-label" for="below"> < 100< unitofMeasure ></label>
+                                    </div>
+            
+                                    <div class="custom-control custom-radio">
+                                        <input id="above" type="radio" class="custom-control-input" value="above" name="filter"
+                                            formControlName="filter">
+                                        <label class="custom-control-label" for="above">> 100< unitofMeasure ></label>
+                                    </div>
+            
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Ok</button>
+                                        <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-
-                        <div class="custom-control custom-radio">
-                            <input id="desc" type="radio" class="custom-control-input" value="desc" name="sortby"
-                                formControlName="sortby">
-                            <label class="custom-control-label" for="desc">Descending</label>
-                        </div>
-
-                        <h4 style="padding-top:20px;">Sort Object</h4>
-                        <div class="custom-control custom-radio">
-                            <input id="son" type="radio" class="custom-control-input" value="name" name="sortbyobject"
-                                formControlName="sortbyobject">
-                            <label class="custom-control-label" for="son">Sort By <-Name-> </label>
-                        </div>
-
-                        <div class="custom-control custom-radio">
-                            <input id="sob" type="radio" class="custom-control-input" value="unitmember" name="sortbyobject"
-                                formControlName="sortbyobject">
-                            <label class="custom-control-label" for="sob">Sort By <-UnitNumber-></label>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Ok</button>
-                            <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
-                        </div>
-                    </form>
+                    </div>
+                    
+                    
                 </div>
 
             </div>

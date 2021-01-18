@@ -75,7 +75,8 @@ export class EmpListComponent implements OnInit {
 
   registrationForm = this.fb.group({
     sortby: ['asc', [Validators.required]],
-    sortbyobject:['name',[]]
+    sortbyobject:['name',[]],
+    filter:['below']
   })
     
   onSubmit() {

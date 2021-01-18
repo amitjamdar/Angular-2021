@@ -37,3 +37,29 @@
         border-bottom: 1px solid #c1c1c1;
     }
 }
+.modal-content{
+    .tab-content {
+        border-top: 1px solid #c1c1c1;
+        border-bottom: none;
+    }
+    .nav-tabs{
+        display: inline-block;
+        border: 1px solid #c1c1c1;
+        border-radius: 2px;
+        margin: 5px;
+        height: 24px;
+        a{
+            padding: 5px;
+            border-radius: initial;
+            line-height: 0px;
+        }
+        .nav-tabs>li {
+            float: left;
+            margin-bottom: -8px;
+            a.active{
+                background-color: midnightblue;
+            }
+        }
+        
+    }
+}
