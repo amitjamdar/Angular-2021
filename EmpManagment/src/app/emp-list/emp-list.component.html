@@ -6,38 +6,61 @@
         </span>
         <span>Employee List</span>
     </div>
+    <div class="row">
+        <div *ngIf="Employee.length !== 0" [ngClass] = "!detailView ? 'col-md-12': 'col-md-4'" class="employees">
+            <ul style="padding: 0; list-style: none;" class="list-unstyle">
+                <li style="background-color: none;">
+                    <input type="search" class="search" placeholder="search" [(ngModel)]="filterSearchValue">
+                    <button style="position: relative;left: -30px;top: -2px;" class="btn"
+                        (click)="loadEmployees()"><span class="glyphicon glyphicon-refresh"></span></button>
+                    <div style="float: right;" class="search-icons">
+                        <span (click)="onClick($event)"><i class="glyphicon glyphicon-sort"></i></span>
+                        <span (click)="onClick($event)"><i class="fa fa-filter" aria-hidden="true"></i></span>
+                    </div>
 
-    <div *ngIf="Employee.length !== 0" class="employees">
-        <ul style="padding: 0; list-style: none;" class="list-unstyle">
-            <li style="background-color: none;">
-                <input type="search" class="search" placeholder="search" [(ngModel)]="filterSearchValue">
-                <div style="float: right;" class="search-icons">
-                    <span (click)="onClick($event)"><i class="glyphicon glyphicon-sort"></i></span>
-                    <span><i class="fa fa-filter" aria-hidden="true"></i></span>
-                </div>
+                    <!-- <span style="float: right;" class="editdelet pull-right" (click)='addEmp()'>Add</span> -->
+                </li>
+                <li style="font-size: 16px;">List of Employees</li>
+                <li style="padding-left: 0px;margin: 0px;" class="row"
+                    *ngFor="let employee of filterResult | search:filterSearchValue">
+                    <div class="col-md-12" (click)="empDetails(employee.id)">
+                        <a>{{employee.firstName}} {{employee.lastName}}</a>
 
-                <!-- <span style="float: right;" class="editdelet pull-right" (click)='addEmp()'>Add</span> -->
-            </li>
-            <li style="font-size: 16px;">List of Employees</li>
-            <li style="padding-left: 0px;margin: 0px;" class="row"
-                *ngFor="let employee of Employee | search:filterSearchValue">
-                <div class="col-md-12" (click)="empDetails(employee.id)">
-                    <a>{{employee.firstName}} {{employee.lastName}}</a>
-
-                    <span style="float: right;">
-                        <span style="padding-right: 20px; font-weight: 600;">{{employee.unitnumber}}.00 <br>UoM</span>
-                        <i style="vertical-align: super;" class="glyphicon glyphicon-chevron-right">
-                        </i>
-                    </span>
-                </div>
-                <!-- <div style="padding: 0px;" class="col-md-1">
+                        <span style="float: right;">
+                            <span style="padding-right: 20px; font-weight: 600;">{{employee.unitnumber}}.00
+                                <br>UoM</span>
+                            <i style="vertical-align: super;" class="glyphicon glyphicon-chevron-right">
+                            </i>
+                        </span>
+                    </div>
+                    <!-- <div style="padding: 0px;" class="col-md-1">
                     <span class="edit editdelet" (click)="editEmployee(employee.id)">Edit</span>
                     <span class="delete editdelet" (click)="deleteEmployee(employee.id)">Delete</span>
                 </div> -->
-            </li>
-        </ul>
-       
+               
+                </li>
+            </ul>
+            <span *ngIf="detailView" style="background-color: aliceblue;" class = "resetView"><i class="glyphicon glyphicon-menu-right" (click)="resetView()"></i></span>
+        </div>
+
+        <div style = "padding: 0px;" class="DetailView col-md-8" [hidden]="!detailView">
+            <div class="employees">
+                <ul class="list-unstyle" style="padding: 15px;">
+                    <li class="empDetails row">
+                        <div class="emp-info col-md-8">
+                            <p><label>First Name</label>:&nbsp;&nbsp;{{employeeData.firstName}}</p>
+                            <p><label>Last Name</label>:&nbsp;&nbsp; {{employeeData.lastName}}</p>
+                        </div>
+                    </li>
+                    <li *ngIf="!employeeData">
+                        <h2>No Search Found</h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+
     <div *ngIf="Employee.length == 0" class="employees">
         No Search Found
     </div>
@@ -56,60 +79,66 @@
                     <div role="tabpanel">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab"><i class="glyphicon glyphicon-sort"></i></a>
-    
+                            <li role="presentation" class="active"><a href="#uploadTab" aria-controls="uploadTab"
+                                    role="tab" data-toggle="tab"><i class="glyphicon glyphicon-sort"></i></a>
+
                             </li>
-                            <li role="presentation"><a href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab"><i class="fa fa-filter" aria-hidden="true"></i></a>
+                            <li role="presentation"><a href="#browseTab" aria-controls="browseTab" role="tab"
+                                    data-toggle="tab"><i class="fa fa-filter" aria-hidden="true"></i></a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="uploadTab"><h4>Sort By</h4>
+                            <div role="tabpanel" class="tab-pane active" id="uploadTab">
+                                <h4>Sort By</h4>
                                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
                                     <div class="custom-control custom-radio">
-                                        <input id="asc" type="radio" class="custom-control-input" value="asc" name="sortby"
-                                            formControlName="sortby">
+                                        <input id="asc" type="radio" class="custom-control-input" value="asc"
+                                            name="sortby" formControlName="sortby">
                                         <label class="custom-control-label" for="asc">Ascending</label>
                                     </div>
-            
+
                                     <div class="custom-control custom-radio">
-                                        <input id="desc" type="radio" class="custom-control-input" value="desc" name="sortby"
-                                            formControlName="sortby">
+                                        <input id="desc" type="radio" class="custom-control-input" value="desc"
+                                            name="sortby" formControlName="sortby">
                                         <label class="custom-control-label" for="desc">Descending</label>
                                     </div>
-            
+
                                     <h4 style="padding-top:20px;">Sort Object</h4>
                                     <div class="custom-control custom-radio">
-                                        <input id="son" type="radio" class="custom-control-input" value="name" name="sortbyobject"
-                                            formControlName="sortbyobject">
-                                        <label class="custom-control-label" for="son">Sort By < Name > </label>
+                                        <input id="son" type="radio" class="custom-control-input" value="name"
+                                            name="sortbyobject" formControlName="sortbyobject">
+                                        <label class="custom-control-label" for="son">Sort By < Name> </label>
                                     </div>
-            
+
                                     <div class="custom-control custom-radio">
                                         <input id="sob" type="radio" class="custom-control-input" value="unitmember"
                                             name="sortbyobject" formControlName="sortbyobject">
-                                        <label class="custom-control-label" for="sob">Sort By < UnitNumber ></label>
+                                        <label class="custom-control-label" for="sob">Sort By < UnitNumber></label>
                                     </div>
-            
+
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Ok</button>
                                         <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
                                     </div>
-                                </form></div>
+                                </form>
+                            </div>
                             <div role="tabpanel" class="tab-pane" id="browseTab">
                                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="inner">
                                     <div class="custom-control custom-radio">
-                                        <input id="below" type="radio" class="custom-control-input" value="below" name="filter"
-                                            formControlName="filter">
-                                        <label class="custom-control-label" for="below"> < 100< unitofMeasure ></label>
+                                        <input id="below" type="radio" class="custom-control-input" value="below"
+                                            name="filteringkey" formControlName="filteringkey">
+                                        <label class="custom-control-label" for="below">
+                                            < 100< UnitOfMeasure>
+                                        </label>
                                     </div>
-            
+
                                     <div class="custom-control custom-radio">
-                                        <input id="above" type="radio" class="custom-control-input" value="above" name="filter"
-                                            formControlName="filter">
-                                        <label class="custom-control-label" for="above">> 100< unitofMeasure ></label>
+                                        <input id="above" type="radio" class="custom-control-input" value="above"
+                                            name="filteringkey" formControlName="filteringkey">
+                                        <label class="custom-control-label" for="above">> 100< UnitOfMeasure></label>
                                     </div>
-            
+
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Ok</button>
                                         <span class="btn btn-secondary" (click)="CancelSort()">Cancel</span>
@@ -118,8 +147,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
 
             </div>

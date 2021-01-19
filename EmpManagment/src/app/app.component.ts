@@ -8,6 +8,7 @@ import{ RestApiService } from './shared/rest-api.service';
 })
 export class AppComponent {
   hideHeader:any;
+  detailView:any;
   constructor(private router : Router, private restApi:RestApiService ) {
     this.restApi.hideHeader.subscribe(data=>{
       this.hideHeader = data;

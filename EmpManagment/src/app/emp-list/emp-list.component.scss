@@ -1,5 +1,6 @@
 .employees{
-    background:silver;
+    // background:silver;
+    background: aliceblue;
     li{
         background: #fff;
         font-size: small;
@@ -62,4 +63,17 @@
         }
         
     }
+}
+
+.nav-tabs>li.active>a{
+    color: blue;
+    background:aliceblue;
+}
+.resetView{
+    background-color: aliceblue;
+    position: relative;
+    bottom:50%;
+    left:20px;
+    font-size: 16px;
+    float:right;
 }
