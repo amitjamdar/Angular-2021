@@ -21,6 +21,7 @@ export class EmpListComponent implements OnInit {
   Employee: any = [];
   hideHeader:any;
   detailView: boolean = false;
+  fullScreenView: boolean = false;
   myParam:any;
   showModal : any;
   sortOrder: any;
@@ -83,9 +84,18 @@ export class EmpListComponent implements OnInit {
     });
   }
   resetView(){
-    console.log("resetView");
     this.detailView = false;
   }
+  fullView(){
+    console.log("fullSceen view");
+    this.fullScreenView = true;
+  };
+  closeFullView(){
+    console.log("closview");
+    this.fullScreenView = false;
+    this.detailView = false;
+  }
+
   backToHome(){
     this.restApi.hideHeader.next(true);
     this.router.navigate(['/']);

@@ -77,3 +77,32 @@
     font-size: 16px;
     float:right;
 }
+.objecthead{
+    padding: 20px;
+    background-color: #57B2DC;
+}
+ul{
+    margin: 0px;
+    list-style: none;
+}
+.empDetails{
+    font-size: 12px;
+    padding: 12px 15px 0px;
+    line-height: 15px;
+    border-bottom: 1px solid #c1c1c1;
+    vertical-align: top;
+    border-top: 1px solid #c1c1c1;
+}
+.list-item11{
+    li{
+        background-color: #fff;
+        padding: 10px 0px;
+        border-bottom: 1px solid silver;
+        margin: 0px 0px;
+    }
+}
+.emp-list{
+    padding: 0;
+    list-style: none;
+    overflow-y: scroll;
+}

@@ -7,8 +7,8 @@
         <span>Employee List</span>
     </div>
     <div class="row">
-        <div *ngIf="Employee.length !== 0" [ngClass] = "!detailView ? 'col-md-12': 'col-md-4'" class="employees">
-            <ul style="padding: 0; list-style: none;" class="list-unstyle">
+        <div *ngIf="Employee.length !== 0" [hidden]= "fullScreenView" [ngClass] = "!detailView ? 'col-md-12': 'col-md-4'" class="employees">
+            <ul style="padding: 0; list-style: none;" class="list-unstyle emp-list">
                 <li style="background-color: none;">
                     <input type="search" class="search" placeholder="search" [(ngModel)]="filterSearchValue">
                     <button style="position: relative;left: -30px;top: -2px;" class="btn"
@@ -43,19 +43,47 @@
             <span *ngIf="detailView" style="background-color: aliceblue;" class = "resetView"><i class="glyphicon glyphicon-menu-right" (click)="resetView()"></i></span>
         </div>
 
-        <div style = "padding: 0px;" class="DetailView col-md-8" [hidden]="!detailView">
-            <div class="employees">
-                <ul class="list-unstyle" style="padding: 15px;">
-                    <li class="empDetails row">
-                        <div class="emp-info col-md-8">
-                            <p><label>First Name</label>:&nbsp;&nbsp;{{employeeData.firstName}}</p>
-                            <p><label>Last Name</label>:&nbsp;&nbsp; {{employeeData.lastName}}</p>
-                        </div>
-                    </li>
-                    <li *ngIf="!employeeData">
-                        <h2>No Search Found</h2>
-                    </li>
-                </ul>
+        <div style = "padding: 0px;" [ngClass] = "!fullScreenView ? 'col-md-8': 'col-md-12'" class="DetailView" [hidden]="!detailView">
+            <div class="employee">
+                <div class="col-md-12 objecthead">
+                    <div class="fullscreen-close" style="float:right; cursor: pointer;">
+                        <span style="font-size: 15px;"><i class="glyphicon glyphicon-fullscreen" (click) ="fullView()"></i></span>
+                        <span>
+                            <button style="    font-size: 28px;line-height: 13px;padding-left: 10px;" type="button" (click) ="closeFullView()"  class="close" aria-label="Close">&times;
+                            </button>
+                        </span>
+                    </div>
+                    <h3>Object {{employeeData.id}}</h3>
+                </div>
+                <div class="col-md-12" style="padding: 20px;font-size: 14px;border-bottom: 2px solid #57B2DC; background-color: aliceblue;">
+                    <span> Price</span><br>
+                    <span><strong>{{employeeData.unitnumber}}</strong> UoM</span>
+                </div>
+                <div class="col-md-12" style="padding: 50px 30px 0px;">
+                    <h4>LineItemPlural(1)</h4>
+                </div>
+                <div class="">
+                    <ul class="list-unstyle col-md-12">
+                        <li class="empDetails">
+                            <div class="emp-info row">
+                                <p class="col-md-6">{{employeeData.firstName}}</p>
+                                <p class="col-md-6">{{employeeData.lastName}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyle  col-md-12 list-item11">
+                        <li class="row" style="background-color: #fff;">
+                            <div class="emp-info col-md-6">
+                                <span><strong>LineItemIDD</strong></span><br>
+                                <span>LineItemID_39</span>
+                            </div>
+                            <div class="emp-info col-md-6" style="line-height: 30px;">
+                                <span>1209 UoM</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            
             </div>
         </div>
     </div>
