@@ -6,11 +6,11 @@
       "lastName": "Davolio",
       "address": "1234 Anywhere St.",
       "city": "London",
-      "country": "UK",
+      "country": "UKss",
       "postalCode": 98122,
       "phone": "(0923)290928022",
       "imgurl": "https://picsum.photos/300/300?random=2",
-      "unitnumber":181.00
+      "unitnumber": 181
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "postalCode": 98122,
       "phone": 290928022,
       "imgurl": "https://picsum.photos/300/300?random=2",
-      "unitnumber":63.00
+      "unitnumber": 63
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "postalCode": 98122,
       "phone": 290928022,
       "imgurl": "https://picsum.photos/200/300?random=2",
-      "unitnumber":61.00
+      "unitnumber": 61
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
       "postalCode": 98122,
       "phone": 290928022,
       "imgurl": "https://picsum.photos/200/300?random=2",
-      "unitnumber":42.00
+      "unitnumber": 42
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
       "postalCode": 98122,
       "phone": 290928022,
       "imgurl": "https://picsum.photos/200/300?random=2",
-      "unitnumber":134.00
+      "unitnumber": 134
     },
     {
       "firstName": "Jack",
@@ -66,11 +66,11 @@
       "address": "South",
       "city": "Telsa",
       "country": "UK",
-      "postalCode": "9039",
+      "postalCode": "9039ss",
       "phone": "098732827387",
       "imgurl": "https://picsum.photos/300/300?random=1",
       "id": 6,
-      "unitnumber":34.00
+      "unitnumber": 34
     },
     {
       "firstName": "Jacka",
@@ -82,43 +82,7 @@
       "phone": "098732827387",
       "imgurl": "https://picsum.photos/300/300?random=1",
       "id": 6,
-      "unitnumber":324.00
-    },
-    {
-      "firstName": "eeJacka",
-      "lastName": "Mawsk",
-      "address": "South",
-      "city": "Telsa",
-      "country": "UK",
-      "postalCode": "9039",
-      "phone": "098732827387",
-      "imgurl": "https://picsum.photos/300/300?random=1",
-      "id": 23,
-      "unitnumber":3214.00
-    },
-    {
-      "firstName": "eeerweJacka",
-      "lastName": "Mawsk",
-      "address": "South",
-      "city": "Telsa",
-      "country": "UK",
-      "postalCode": "9039",
-      "phone": "098732827387",
-      "imgurl": "https://picsum.photos/300/300?random=1",
-      "id": 23,
-      "unitnumber":214.00
-    },
-    {
-      "firstName": "ecka",
-      "lastName": "Mawsk",
-      "address": "South",
-      "city": "Telsa",
-      "country": "UK",
-      "postalCode": "9039",
-      "phone": "098732827387",
-      "imgurl": "https://picsum.photos/300/300?random=1",
-      "id": 223,
-      "unitnumber":214.00
+      "unitnumber": 324
     }
   ]
 }

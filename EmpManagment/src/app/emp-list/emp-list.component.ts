@@ -28,6 +28,7 @@ export class EmpListComponent implements OnInit {
   filterResult: any;
   detialsId:any;
   id:any;
+  showMyContainer: boolean = true;
   emptyFilter: filtersI = {
     sortby: null,
     sortbyobject:null,
@@ -47,13 +48,16 @@ export class EmpListComponent implements OnInit {
     this.loadEmployees();
   }
 
-
   // Get employees list
   loadEmployees() {
     return this.restApi.getEmployees().subscribe((data: {}) => {
       this.Employee = data;
-      this.empFilter(this.emptyFilter);
-      this.sortOrder = this.empFilter;
+      this.emptyFilter = {
+        sortby: null,
+        sortbyobject:null,
+        filteringkey:null
+      };
+      this.empFilterSort(this.emptyFilter);
     })
   }
 
@@ -80,57 +84,28 @@ export class EmpListComponent implements OnInit {
     console.log(id);
     return  this.restApi.getEmployee(id).subscribe((data: {}) => {
       this.employeeData = data;
-      console.log(typeof this.employeeData);
     });
   }
-  resetView(){
-    this.detailView = false;
-  }
-  fullView(){
-    console.log("fullSceen view");
-    this.fullScreenView = true;
-  };
-  closeFullView(){
-    console.log("closview");
-    this.fullScreenView = false;
-    this.detailView = false;
-  }
-
-  backToHome(){
-    this.restApi.hideHeader.next(true);
-    this.router.navigate(['/']);
-  }
-  addEmp(){
-    this.router.navigate(['add-employee']);
-  }
-  onClick(event: any)
-  {
-    this.showModal = true; // Show-Hide Modal Check
-  }
-  hide()
-  {
-    this.showModal = false;
-  }
-
-
+ 
   registrationForm = this.fb.group({
     sortby: ['', [Validators.required]],
     sortbyobject:['',[]],
     filteringkey:['']
   })
-
   
-
   onSubmit() {
-    this.sortOrder = this.registrationForm.value;
-    console.log("After Filter click" , JSON.stringify(this.sortOrder));
-    this.empFilter(this.sortOrder);
-    this.Employee.sort(this.compareValues('firstName', this.sortOrder));
+    console.log(this.registrationForm);
+    this.emptyFilter = {
+      sortby: this.registrationForm.value.sortby,
+      sortbyobject:this.registrationForm.value.sortbyobject,
+      filteringkey:this.registrationForm.value.filteringkey
+    }
+    this.empFilterSort(this.emptyFilter);
+    this.Employee.sort(this.compareValues('firstName', this.emptyFilter));
     this.showModal = false;
   }  
 
-  empFilter(filterItem: any){
-    console.log("In EMP Filter" , JSON.stringify(filterItem));
+  empFilterSort(filterItem: any){
     this.filterResult = this.Employee.filter((e:any) => {
         if(filterItem.filteringkey == "below"){
           return e.unitnumber < 100;
@@ -141,14 +116,12 @@ export class EmpListComponent implements OnInit {
         }
       }); 
   }
-
   compareValues(key: string, order:any) {
     return function innerSort(a: { [x: string]: any; hasOwnProperty: (arg0: any) => any; }, b: { [x: string]: any; hasOwnProperty: (arg0: any) => any; }) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
         // property doesn't exist on either object
         return 0;
       }
-  
       const varA = (typeof a[key] === 'string')
         ? a[key].toUpperCase() : a[key];
       const varB = (typeof b[key] === 'string')
@@ -166,10 +139,35 @@ export class EmpListComponent implements OnInit {
     };
   }
 
+  backToHome(){
+    this.restApi.hideHeader.next(true);
+    this.router.navigate(['/']);
+  }
+  addEmp(){
+    this.router.navigate(['add-employee']);
+  }
+  onClick(event: any)
+  {
+    this.showModal = true; // Show-Hide Modal Check
+  }
+  hide()
+  {
+    this.showModal = false;
+  }
   SortData(){
     console.log("In Sort data");
   }
   CancelSort(){
     this.showModal = false;
+  }
+  resetView(){
+    this.detailView = false;
+  }
+  fullView(){
+    this.fullScreenView = true;
+  };
+  closeFullView(){
+    this.fullScreenView = false;
+    this.detailView = false;
   }
 }

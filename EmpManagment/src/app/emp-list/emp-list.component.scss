@@ -106,3 +106,18 @@ ul{
     list-style: none;
     overflow-y: scroll;
 }
+button:focus {
+    outline: 1px;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+.toggleicon{
+    font-size: 11px;
+    background: #57B2DC;
+    position: relative;
+    left: 50%;
+    bottom: 12px;
+    text-align: center;
+    i{
+        width: 24px;
+    }
+}

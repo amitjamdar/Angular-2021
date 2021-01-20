@@ -7,7 +7,8 @@
         <span>Employee List</span>
     </div>
     <div class="row">
-        <div *ngIf="Employee.length !== 0" [hidden]= "fullScreenView" [ngClass] = "!detailView ? 'col-md-12': 'col-md-4'" class="employees">
+        <div *ngIf="Employee.length !== 0" [hidden]="fullScreenView" [ngClass]="!detailView ? 'col-md-12': 'col-md-4'"
+            class="employees">
             <ul style="padding: 0; list-style: none;" class="list-unstyle emp-list">
                 <li style="background-color: none;">
                     <input type="search" class="search" placeholder="search" [(ngModel)]="filterSearchValue">
@@ -23,7 +24,7 @@
                 <li style="font-size: 16px;">List of Employees</li>
                 <li style="padding-left: 0px;margin: 0px;" class="row"
                     *ngFor="let employee of filterResult | search:filterSearchValue">
-                    <div class="col-md-12" (click)="empDetails(employee.id)">
+                    <div [ngClass]="!detailView ? 'col-md-11': 'col-md-7'" class="col-md-11" (click)="empDetails(employee.id)">
                         <a>{{employee.firstName}} {{employee.lastName}}</a>
 
                         <span style="float: right;">
@@ -33,32 +34,42 @@
                             </i>
                         </span>
                     </div>
-                    <!-- <div style="padding: 0px;" class="col-md-1">
-                    <span class="edit editdelet" (click)="editEmployee(employee.id)">Edit</span>
-                    <span class="delete editdelet" (click)="deleteEmployee(employee.id)">Delete</span>
-                </div> -->
-               
+                    <div [ngClass]="!detailView ? 'col-md-1': 'col-md-4'" style="text-align: center; padding: 13px 12px;" class="col-md-1">
+                        <span class="edit editdelet" (click)="editEmployee(employee.id)"><i class="glyphicon glyphicon-edit"></i></span>
+                        <span class="delete editdelet" (click)="deleteEmployee(employee.id)"><i class="glyphicon glyphicon-remove"></i></span>
+                    </div>
+
                 </li>
             </ul>
-            <span *ngIf="detailView" style="background-color: aliceblue;" class = "resetView"><i class="glyphicon glyphicon-menu-right" (click)="resetView()"></i></span>
+            <span *ngIf="detailView" style="background-color: aliceblue;" class="resetView"><i
+                    class="glyphicon glyphicon-menu-right" (click)="resetView()"></i></span>
         </div>
 
-        <div style = "padding: 0px;" [ngClass] = "!fullScreenView ? 'col-md-8': 'col-md-12'" class="DetailView" [hidden]="!detailView">
+        <div style="padding: 0px;" [ngClass]="!fullScreenView ? 'col-md-8': 'col-md-12'" class="DetailView"
+            [hidden]="!detailView">
             <div class="employee">
                 <div class="col-md-12 objecthead">
                     <div class="fullscreen-close" style="float:right; cursor: pointer;">
-                        <span style="font-size: 15px;"><i class="glyphicon glyphicon-fullscreen" (click) ="fullView()"></i></span>
-                        <span>
-                            <button style="    font-size: 28px;line-height: 13px;padding-left: 10px;" type="button" (click) ="closeFullView()"  class="close" aria-label="Close">&times;
+                        <span style="font-size: 15px;"><i class="glyphicon glyphicon-fullscreen"
+                                (click)="fullView()"></i></span>
+                        <span style="cursor: pointer;">
+                            <button style="font-size: 28px;line-height: 13px;padding-left: 10px;" type="button"
+                                (click)="closeFullView()" class="close" aria-label="Close">&times;
                             </button>
                         </span>
                     </div>
                     <h3>Object {{employeeData.id}}</h3>
                 </div>
-                <div class="col-md-12" style="padding: 20px;font-size: 14px;border-bottom: 2px solid #57B2DC; background-color: aliceblue;">
+                <div *ngIf="showMyContainer" class="col-md-12"
+                    style="padding: 20px;font-size: 14px;border-bottom: 2px solid #57B2DC; background-color: aliceblue;">
                     <span> Price</span><br>
                     <span><strong>{{employeeData.unitnumber}}</strong> UoM</span>
                 </div>
+
+                <span class="toggleicon" style="cursor: pointer;" (click)="showMyContainer=!showMyContainer"><i
+                        class="glyphicon"
+                        [ngClass]="showMyContainer ? 'glyphicon-menu-up': 'glyphicon-menu-down'"></i></span>
+
                 <div class="col-md-12" style="padding: 50px 30px 0px;">
                     <h4>LineItemPlural(1)</h4>
                 </div>
@@ -73,17 +84,18 @@
                     </ul>
                     <ul class="list-unstyle  col-md-12 list-item11">
                         <li class="row" style="background-color: #fff;">
-                            <div class="emp-info col-md-6">
+                            <div class="emp-info col-md-6" style="line-height: 20px;">
                                 <span><strong>LineItemIDD</strong></span><br>
                                 <span>LineItemID_39</span>
                             </div>
-                            <div class="emp-info col-md-6" style="line-height: 30px;">
-                                <span>1209 UoM</span>
+                            <div class="emp-info col-md-6" style="line-height: 40px;">
+                                <span><strong
+                                        style="color: silver;">{{employeeData.unitnumber}}</strong>&nbsp;UoM</span>
                             </div>
                         </li>
                     </ul>
                 </div>
-            
+
             </div>
         </div>
     </div>
