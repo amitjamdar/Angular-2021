@@ -6,7 +6,7 @@
         </span>
         <span>Employee List</span>
     </div>
-    <div class="row">
+    <div class="col-md-12">
         <div *ngIf="Employee.length !== 0" [hidden]="fullScreenView" [ngClass]="!detailView ? 'col-md-12': 'col-md-4'"
             class="employees">
             <ul style="padding: 0; list-style: none;" class="list-unstyle emp-list">
@@ -19,7 +19,7 @@
                         <span (click)="onClick($event)"><i class="fa fa-filter" aria-hidden="true"></i></span>
                     </div>
 
-                    <!-- <span style="float: right;" class="editdelet pull-right" (click)='addEmp()'>Add</span> -->
+                    <span style="float: right;" class="editdelet pull-right" (click)='addEmp()'><i class="glyphicon glyphicon-plus-sign"></i></span>
                 </li>
                 <li style="font-size: 16px;">List of Employees</li>
                 <li style="padding-left: 0px;margin: 0px;" class="row"

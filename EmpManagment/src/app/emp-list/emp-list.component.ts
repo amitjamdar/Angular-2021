@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestApiService } from "../shared/rest-api.service";
@@ -50,6 +50,7 @@ export class EmpListComponent implements OnInit {
 
   // Get employees list
   loadEmployees() {
+    this.filterSearchValue = "";
     return this.restApi.getEmployees().subscribe((data: {}) => {
       this.Employee = data;
       this.emptyFilter = {
